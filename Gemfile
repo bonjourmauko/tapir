@@ -1,6 +1,12 @@
 source 'http://rubygems.org'
 
+gem 'rake', '0.8.7' # http://twitter.com/#!/dhh/status/71966528744071169
 gem 'rails', '3.0.7'
+gem 'nokogiri'
+gem 'jquery-rails', '>= 1.0.3'
+gem 'devise'
+gem 'haml'
+gem 'cloudfiles'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
