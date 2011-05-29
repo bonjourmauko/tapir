@@ -1,5 +1,5 @@
 class BooksController < ApplicationController  
-  before_filter :find_book_by_id
+  before_filter :find_book_by_id, :get_action_name
   
   
   def edit
@@ -7,10 +7,12 @@ class BooksController < ApplicationController
   end
   
   def update
+    last = params[:last_action] or 'contents'
+    
     if @book.update_attributes params[:book]
-      redirect_to marketing_book_path, :notice => 'Book was successfully updated.'
+      redirect_to :action => next_action(last), :notice => 'Book was successfully updated.'
     else
-      render :action => "edit"
+      render :action => last
     end
   end
   
@@ -24,7 +26,7 @@ class BooksController < ApplicationController
   def premaster
     bookhtml = params[:bookhtml]
     @book.set_premaster bookhtml
-    redirect_to marketing_book_path
+    redirect_to :action => 'marketing'
   end
   
   
@@ -33,6 +35,16 @@ class BooksController < ApplicationController
   
   def find_book_by_id
     @book = Book.find params[:id]
+  end
+  
+  def get_action_name
+    @action = params[:action]
+  end
+  
+  def next_action current
+    order = ['contents','marketing','publish']
+    index = order.index current
+    if index then order.slice index + 1 else order.last end
   end
   
 end

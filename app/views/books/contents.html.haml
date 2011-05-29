@@ -13,9 +13,9 @@
 
   .bar
     .rt
-    = form_tag :action => :premaster, :method => "post" do
-      = hidden_field_tag :bookhtml
-      = submit_tag "Send"
+    = form_for @book do |f|
+      = last_action
+      = f.submit
 
     .rt.full.googlelogo.middle
       = link_to "http://" do

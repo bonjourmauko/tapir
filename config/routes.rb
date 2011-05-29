@@ -4,6 +4,8 @@ Tapir::Application.routes.draw do
   resources :books do
     member do
       post 'premaster'
+      get 'marketing'
+      get 'contents'
     end
     
   end
