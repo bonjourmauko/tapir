@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529004507) do
+ActiveRecord::Schema.define(:version => 20110529015826) do
 
   create_table "books", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110529004507) do
     t.string   "language"
     t.string   "paypal_username"
     t.decimal  "price",           :precision => 6, :scale => 2
+    t.integer  "premaster_id"
   end
 
   create_table "sources", :force => true do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20110529004507) do
     t.boolean  "collection"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "book_id"
   end
 
   create_table "users", :force => true do |t|

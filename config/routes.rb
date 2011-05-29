@@ -1,7 +1,12 @@
 Tapir::Application.routes.draw do
   resources :sources
 
-  resources :books
+  resources :books do
+    member do
+      post 'premaster'
+    end
+    
+  end
 
   devise_for :users
 
