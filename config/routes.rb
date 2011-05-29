@@ -1,4 +1,6 @@
 Tapir::Application.routes.draw do
+  resources :sources
+
   resources :books
 
   devise_for :users
