@@ -13,14 +13,27 @@ class Illustration < ActiveRecord::Base
   end
   
   def get_content_type
-    uri = URI.parse original_url_to_http
-    head = nil
-    Net::HTTP.start(uri.host, uri.port) do |http| head = http.request_head(uri.path) end
+    head = get_original_head
     raise 'Illustration response NOT 200' if head.class != Net::HTTPOK
     head['content-type']
   rescue
     nil
   end
+  
+  def get_original_head
+    Net::HTTP.start original_uri.host, original_uri.port do |http|
+      http.request_head original_uri.path
+    end
+  end
+  
+  def original_uri protocol = 'http'
+    if protocol == 'http'
+      URI.parse original_url_to_http
+    else
+      URI.parse original_url
+    end
+  end
+  
   
   def original_url_to_http
     original_url.gsub('https://','http://')
