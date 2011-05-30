@@ -4,6 +4,7 @@ class Book < ActiveRecord::Base
   
   has_one :source
   belongs_to :user
+  has_many :illustrations
   
   def set_premaster content
     raise 'No premaster_id' if not premaster_id
