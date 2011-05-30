@@ -62,3 +62,13 @@ p.left {text-align: left;}
 p.right {text-align: right;}
 p.center {text-align: center;}
 p.justify {text-align: justify;}'
+
+EPUB_MIMETYPE = 'application/epub+zip'
+
+EPUB_CONTAINERXML =
+'<?xml version="1.0"?>
+<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
+   <rootfiles>
+      <rootfile full-path="metadata.opf" media-type="application/oebps-package+xml"/>
+   </rootfiles>
+</container>'
