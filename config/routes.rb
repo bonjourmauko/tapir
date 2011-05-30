@@ -6,6 +6,7 @@ Tapir::Application.routes.draw do
       post 'premaster'
       get 'marketing'
       get 'contents'
+      get 'epub_opf'
     end
     
   end

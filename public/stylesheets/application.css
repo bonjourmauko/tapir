@@ -6,7 +6,7 @@ margin-bottom: 20px;
 
 body {
 background: #eee;
-font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif !important;
+font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 margin: 0;
 color: #333;
 }
@@ -125,9 +125,8 @@ a:hover {text-decoration: underline;}
   
 }
 
-input.text, .xc input
+/*input[type=text]
 {
-  width: 100%;
   font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
   border: 0;
   padding: 5px;
@@ -137,7 +136,31 @@ input.text, .xc input
   box-shadow:inset 1px 1px 5px RGBA(0,0,0,0.3);
 }
 
+.title input[type=text]
+{
+  width: 100%;
+}*/
 
+input[type=text]
+{
+  font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+h2 { font-size: 1.5em;}
+
+
+hr.separator
+{
+  margin: 20px 0;
+  background: #DDD;
+  height: 5px;
+  border: 0;
+}
+
+hr.thin
+{
+  height: 2px;
+}
 
 .full
 {
@@ -185,3 +208,5 @@ td.right {width: 100%;}
 .googlelogo img {height: 20px;}
 
 .cont {width: 600px; margin: 20px; padding: 20px; background: white;}
+
+.red {color: red;}

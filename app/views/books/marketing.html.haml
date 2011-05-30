@@ -1,13 +1,30 @@
 .cont
-  = form_for @book do |f|
-    = last_action
-    .x
-      = f.label :price
-      = f.text_field :price
-    .x
-      = 
-    .x
-      = f.label :paypal_username
-      = f.text_field :paypal_username
-    .x
-      = f.submit
+  .xc
+    = form_for @book do |f|
+      = last_action
+      .x
+        %h3 Set a price for your book
+        Price
+        = f.text_field :price, :size => 8
+        %hr.separator
+      %h2.half How people will buy your book?
+      .full Choose all that you want
+      .full
+        %h3.half
+          = check_box_tag :sosos
+          Accept Paypal
+        .full
+          .x People can buy your book with credit cards and Paypal accounts.
+          .x You get the money instantly in your Paypal account.
+          .x You need to have a verified Paypal account.
+        %h3.half.red You get $11.37 for each book sold.
+        We get $0.30. Paypal gets $0.35.
+      %hr.separator.thin
+        %h3.half
+          = check_box_tag :sosos
+          Sell it yourself
+        .full
+          .x People will contact you and pay you directly (for example with a bank transfer or a cheque)
+          .x You will give them a unique link to download the book
+        %h3.half.red You get $12.37 for each book sold.
+        We sell you 50 download codes for $15.

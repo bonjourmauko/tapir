@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529025911) do
+ActiveRecord::Schema.define(:version => 20110529222608) do
 
   create_table "books", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20110529025911) do
     t.string   "paypal_username"
     t.decimal  "price",           :precision => 6, :scale => 2
     t.string   "premaster_id"
+    t.string   "master_id"
   end
 
   create_table "sources", :force => true do |t|
@@ -44,7 +45,6 @@ ActiveRecord::Schema.define(:version => 20110529025911) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "paypal_username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

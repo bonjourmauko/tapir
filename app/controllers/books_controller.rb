@@ -9,8 +9,12 @@ class BooksController < ApplicationController
   def update
     last = params[:last_action] or 'contents'
     
+    if params[:bookhtml]
+      @book.set_premaster params[:bookhtml]
+    end
+    
     if @book.update_attributes params[:book]
-      redirect_to :action => next_action(last), :notice => 'Book was successfully updated.'
+      redirect_to :action => next_action(last)#, :notice => 'Book was successfully updated.'
     else
       render :action => last
     end
@@ -21,6 +25,10 @@ class BooksController < ApplicationController
   
   def contents
     @source = @book.source
+  end
+  
+  def epub_opf
+    render 'books/epub/metadata.opf'
   end
   
   def premaster
