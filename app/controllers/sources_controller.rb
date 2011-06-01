@@ -15,7 +15,7 @@ class SourcesController < ApplicationController
     Source.create :resource_id => resource_id
     User.create :email => user_email, :password => "walwalalalalskksksksksksksksk"
     
-    render :status => 200
+    render :text => "Created succesfully!", :status => 200
     
   rescue => e
     
