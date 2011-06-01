@@ -12,6 +12,11 @@ class SourcesController < ApplicationController
     raise "no user_email" if not user_email
     raise "no gdocs_id" if not gdocs_id
     
+    Source.create :resource_id => gdocs_id
+    User.create :email => user_email, :password => "walwalalalalskksksksksksksksk"
+    
+    render :status => 200
+    
   rescue => e
     
     render :text => e.message, :status => 400
