@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   after_initialize :generate_random_password
   after_create :assign_token
   
-  
+  private
   
   def assign_token
     self.reset_authentication_token!
