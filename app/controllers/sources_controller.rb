@@ -19,11 +19,13 @@ class SourcesController < ApplicationController
     book.source = source
     user.books << book
     
-    if user.valid? and source.valid? and book.valid?
-      user.save! if user.new_record?
-      source.save!
-      book.save!
-    end
+    raise "User record is invalid" if not user.valid? and user.new_record?
+    raise "Book record is invalid" if not book.valid?
+    raise "Source record is invalid" if not source.valid?
+    
+    user.save! if user.new_record?
+    source.save!
+    book.save!
     
     render :text => "Created succesfully!\n", :status => 200
     
