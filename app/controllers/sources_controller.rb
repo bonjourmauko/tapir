@@ -10,7 +10,7 @@ class SourcesController < ApplicationController
     resource_lang = params[:resource_lang]
     
     raise "no user_email" if not user_email
-    raise "no gdocs_id" if not resource_id
+    raise "no resource_id" if not resource_id
     
     Source.create :resource_id => resource_id
     User.create :email => user_email, :password => "walwalalalalskksksksksksksksk"
