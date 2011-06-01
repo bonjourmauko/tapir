@@ -4,15 +4,15 @@ class SourcesController < ApplicationController
     
     user_email = params[:user_email]
     user_name = params[:user_name]
-    gdocs_id = params[:GDocId]
-    gdocs_type = params[:GDocType]
-    gdocs_name = params[:GDocName]
-    gdocs_language = params[:GDocLanguage]
+    resource_id = params[:resource_id]
+    resource_type = params[:resource_type]
+    resource_title = params[:resource_title]
+    resource_lang = params[:resource_lang]
     
     raise "no user_email" if not user_email
     raise "no gdocs_id" if not gdocs_id
     
-    Source.create :resource_id => gdocs_id
+    Source.create :resource_id => resource_id
     User.create :email => user_email, :password => "walwalalalalskksksksksksksksk"
     
     render :status => 200
