@@ -1,0 +1,280 @@
+#html
+  background: #eee
+  padding: 20px
+  margin-bottom: 20px
+
+body
+  background: #eee
+  font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif
+  margin: 0
+  color: #333
+
+p
+  margin-bottom: 2em !important
+
+h1, h2, h3
+  margin: 0
+  line-height: 125%
+  margin-bottom: 1em
+  padding: 0
+
+h1
+  text-align: center
+  font-size: 1.5em
+  font-weight: normal
+
+.bold
+  font-weight: bold
+
+.italic
+  font-style: italic
+
+.underline
+  text-decoration: underline
+
+.line-through
+  text-decoration: line-through
+
+.sub
+  vertical-align: sub
+
+.super
+  vertical-align: super
+
+p
+  &.left
+    text-align: left
+  &.right
+    text-align: right
+  &.center
+    text-align: center
+  &.justify
+    text-align: justify
+
+.foot_ref
+  vertical-align: super
+
+.foot
+  color: #999
+  background: #fea
+  margin-bottom: 1em
+
+.chapter
+  background: #fff
+  padding: 40px
+  margin: 40px auto
+  max-width: 600px
+  min-width: 250px
+  -moz-box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+  -webkit-box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+  box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+
+.section
+  background: #fff
+  padding: 40px
+  margin: 40px auto
+  max-width: 600px
+  min-width: 250px
+  -moz-box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+  -webkit-box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+  box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+  .inner
+    margin: -20px
+
+.chapter
+  font: 16px Georgia, serif
+  line-height: 125%
+  text-align: justify
+
+.section
+  font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif
+  table
+    font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif
+
+.illustration img
+  width: 100%
+
+/*span {
+ *background: #fea;
+ *}
+ *p {
+ *border: 1px solid #fcc;
+ *padding: 20px;
+ *}
+
+a
+  &:link, &:visited
+    color: #376699
+    text-decoration: none
+  &:hover
+    text-decoration: underline
+
+.wrapper
+  width: 60%
+
+.everything
+  min-width: 350px
+  width: 100%
+
+.bar
+  position: fixed
+  right: 20px
+  top: 40px
+  width: 30%
+  min-width: 100px
+
+/*input[type=text]
+ *{
+ *  font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+ *  border: 0;
+ *  padding: 5px;
+ *  
+ *  -moz-box-shadow:inset 1px 1px 5px RGBA(0,0,0,0.3);
+ *  -webkit-box-shadow:inset 1px 1px 5px RGBA(0,0,0,0.3);
+ *  box-shadow:inset 1px 1px 5px RGBA(0,0,0,0.3);
+ *}
+ *
+ *.title input[type=text]
+ *{
+ *  width: 100%;
+ *}
+
+input[type=text]
+  font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif
+
+h2
+  font-size: 1.5em
+
+hr
+  &.separator
+    margin: 20px 0
+    background: #DDD
+    height: 5px
+    border: 0
+    max-width: 600px
+  &.thin
+    height: 2px
+
+.full
+  margin-bottom: 1em
+
+.half
+  margin-bottom: 0.5em
+
+.quarter
+  margin-bottom: 0.25em
+
+.cover img
+  width: 125px
+  margin-right: 10px
+
+.cover_link
+  margin-top: 5px
+  text-align: center
+
+td
+  &.top
+    vertical-align: top
+  &.bottom
+    vertical-align: bottom
+
+.add_cover
+  margin-left: 100px
+
+.lonely_link
+  text-align: center
+  margin: -20px 0
+
+.label
+  color: #666
+
+.clear
+  clear: both
+
+table.info
+  width: 100%
+
+td
+  &.left
+    width: 120px
+  &.right
+    width: 100%
+
+.bar .heading
+  background: #ddd
+  padding: 5px
+  font-size: 12px
+
+.toc .item
+  margin: 5px
+
+.middle img
+  vertical-align: middle
+
+.googlelogo img
+  height: 20px
+
+.cont
+  padding: 20px
+  background: white
+
+.red
+  color: red
+
+.normal
+  font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif
+  color: #333
+
+.strong
+  font-weight: bold
+
+.infobox
+  background: #fea
+  padding: 5px
+  display: inline-block
+
+#min
+  #wrap
+    max-width: 960px
+    margin: 20px auto
+  #main
+    float: left
+    width: 200px
+    > .inner
+      padding: 0 20px
+  #sidebar
+    display: inline-block
+    float: right
+    max-width: 760px
+    > .inner
+      padding: 0 20px
+  #footer
+    clear: both
+  h1
+    font-size: 1.5em
+    margin: 0 0 1em 0
+    text-align: left
+    font-weight: bold
+  .price
+    font-size: 1.5em
+    margin-bottom: 1em
+    .local
+      font-size: 0.7em
+    .official
+      font-weight: bold
+  .desc
+    margin-bottom: 1em
+  .buy
+    margin-bottom: 1em
+    .button
+      display: inline-block
+      padding: 5px
+      background: #65C604
+      font-size: 1.5em
+      min-width: 100px
+      text-align: center
+      &:link, &:visited
+        text-decoration: none
+        color: #fff
+      &:hover
+        background: #E34D00

@@ -6,6 +6,7 @@ gem 'nokogiri'
 gem 'jquery-rails', '>= 1.0.3'
 gem 'devise'
 gem 'haml'
+gem 'sass'
 gem 'cloudfiles'
 
 # Bundle edge Rails instead:

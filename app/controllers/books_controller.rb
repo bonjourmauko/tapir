@@ -27,6 +27,10 @@ class BooksController < ApplicationController
     @source = @book.source
   end
   
+  def publish
+  end
+  
+  
   def epub_opf
     render 'books/epub/metadata.opf'
   end

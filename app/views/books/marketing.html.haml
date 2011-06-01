@@ -4,27 +4,49 @@
       = last_action
       .x
         %h3 Set a price for your book
-        Price
-        = f.text_field :price, :size => 8
+        .half
+          = f.radio_button :free, true
+          Free
+        .half
+          = f.radio_button :free, false
+          $
+          = f.text_field :price, :size => 8
+          US Dollars
         %hr.separator
-      %h2.half How people will buy your book?
+      %h2.half How people will pay for your book?
       .full Choose all that you want
-      .full
-        %h3.half
-          = check_box_tag :sosos
-          Accept Paypal
-        .full
-          .x People can buy your book with credit cards and Paypal accounts.
-          .x You get the money instantly in your Paypal account.
-          .x You need to have a verified Paypal account.
-        %h3.half.red You get $11.37 for each book sold.
-        We get $0.30. Paypal gets $0.35.
       %hr.separator.thin
-        %h3.half
+      .full
+        .half.strong
           = check_box_tag :sosos
-          Sell it yourself
+          %big Accept Paypal
+        .half.strong
+          You get
+          %big.red
+            $11.37
+          for each book sold.
+          %span.normal We get $0.30. Paypal gets $0.35.
+        .half.infobox
+          Paypal username
+          = f.text_field :paypal_username
+          You need a verified Paypal account
+        .half
+          = link_to "Tell me more", "jsjs"
+          %big &nbsp;
+        %hr.separator.thin
         .full
-          .x People will contact you and pay you directly (for example with a bank transfer or a cheque)
-          .x You will give them a unique link to download the book
-        %h3.half.red You get $12.37 for each book sold.
-        We sell you 50 download codes for $15.
+          %h3.half
+            = check_box_tag :sosos
+            Pay to you directly
+            %span.normal You will sell unique download links
+          .half.strong
+            You get
+            %big.red
+              $12.37
+            for each book sold.
+          .half We sell you a block of 50 unique download links for $20
+          .k
+            = link_to "Tell me more", "jsjs"
+            %big &nbsp;
+      .half
+        = f.submit
