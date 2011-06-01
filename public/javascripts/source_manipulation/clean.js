@@ -236,4 +236,9 @@ function chapterify()
     $('h3').each(function() {
         wrap_chapter(this, 'chapter level3')
     })
+    
+    if ($('h1').length == 0)
+    {
+      $('#contents').contents().wrapAll('<div />').parent().addClass('chapter level1')
+    }
 }
