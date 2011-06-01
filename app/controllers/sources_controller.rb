@@ -13,11 +13,17 @@ class SourcesController < ApplicationController
     raise "No resource_id" if not resource_id
     
     user = User.find_by_email user_email
-    user = User.create! :email => user_email, :password => random_password unless user
-    source = Source.create! :resource_id => resource_id, :service => 'google_docs'
-    book = Book.create! :title => resource_title, :language => resource_lang
+    user = User.new :email => user_email unless user
+    source = Source.new :resource_id => resource_id, :service => 'google_docs'
+    book = Book.new :title => resource_title, :language => resource_lang
     book.source = source
     user.books << book
+    
+    if user.valid? and source.valid? and book.valid?
+      user.save! if user.new_record?
+      source.save!
+      book.save!
+    end
     
     render :text => "Created succesfully!\n", :status => 200
     
@@ -27,13 +33,6 @@ class SourcesController < ApplicationController
     
   end
   
-  
-  
-  private
-  
-  def random_password
-    Digest::MD5.hexdigest(Time.now.to_s + rand(100000).to_s)
-  end
     
     
 end

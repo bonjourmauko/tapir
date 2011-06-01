@@ -7,7 +7,8 @@ class Book < ActiveRecord::Base
   has_one :source
   belongs_to :user
   has_many :illustrations
-
+  
+  
 
   def extract_illustrations
     parsed_premaster.css('img').each do |image|
