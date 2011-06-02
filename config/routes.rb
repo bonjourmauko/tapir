@@ -1,4 +1,6 @@
 Tapir::Application.routes.draw do
+  resources :images
+
   resources :illustrations
 
   resources :sources

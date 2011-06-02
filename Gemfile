@@ -8,6 +8,8 @@ gem 'devise'
 gem 'haml'
 gem 'sass'
 gem 'cloudfiles'
+gem "paperclip", "~> 2.3"
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

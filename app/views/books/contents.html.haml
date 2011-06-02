@@ -8,45 +8,46 @@
   //var parts = #{1};
   var external_resource_id = "#{@source.resource_id}"
   var external_resource_type = "#{@source.collection ? 'google_collection' : 'google_document'}"
+  var premaster_id = "#{@book.premaster_id}"
 
 #book_preview
-  .bar
-    .item
-      = form_for @book do |f|
+  = form_for @book do |f|
+    .bar
+      .item
         = last_action
         = hidden_field_tag 'bookhtml'
         = f.submit
-    .item.googlelogo
-      = link_to "http://" do
-        Edit your book in&nbsp;
-        = image_tag "http://upload.wikimedia.org/wikipedia/en/2/29/Google_Docs_logo.png"
-    .item.preview
-      %h3 Preview your book      
-      = image_tag "http://dl.dropbox.com/u/7989419/ipad_mini.png"
-      iPad &nbsp;&nbsp;
-      = image_tag "http://dl.dropbox.com/u/7989419/MRF_Kindle_Icon_s.png"
-      Kindle
+      .item.googlelogo
+        = link_to "http://" do
+          Edit your book in&nbsp;
+          = image_tag "http://upload.wikimedia.org/wikipedia/en/2/29/Google_Docs_logo.png"
+      .item.preview
+        %h3 Preview your book      
+        = image_tag "http://dl.dropbox.com/u/7989419/ipad_mini.png"
+        iPad &nbsp;&nbsp;
+        = image_tag "http://dl.dropbox.com/u/7989419/MRF_Kindle_Icon_s.png"
+        Kindle
 
-    #toc.item
-      %h3 Table of Contents
-      .item Cover
+      #toc.item
+        %h3 Table of Contents
+        .item Cover
 
 
-  .wrapper
-    #bookinfo.section
-      .inner
-        %table
-          %tr
-            %td.leftcol
-              .cover= image_tag "http://pictorical.com/system/images/BAhbBlsHOgZmIioyMDExLzAzLzIyLzIxLzU5LzIxLzExL01lcm1haWQxODAuanBn/Mermaid180.jpg"
-              .cover_link= link_to "Change cover", "http://www.google.com"
-            %td.rightcol
-              .item
-                %input.text
-                .label The title of your book
-              .item
-                %input.text
-                .label The author of this book
+    .wrapper
+      #bookinfo.section
+        .inner
+          %table
+            %tr
+              %td.leftcol
+                .cover= image_tag "http://pictorical.com/system/images/BAhbBlsHOgZmIioyMDExLzAzLzIyLzIxLzU5LzIxLzExL01lcm1haWQxODAuanBn/Mermaid180.jpg"
+                .cover_link= link_to "Change cover", "http://www.google.com"
+              %td.rightcol
+                .item
+                  = f.text_field :title, :class => 'title'
+                  .label The title of your book
+                .item
+                  = f.text_field :author, :class => 'author'
+                  .label The author of this book
               
     
-    #book_contents
+      #book_contents

@@ -26,9 +26,9 @@
     #toc
       >.item
         margin-bottom: 0.25em
-  
+        
   .section
-    background: #fff
+    background: #f7f7f7
     padding: 40px
     margin: 40px auto
     max-width: 600px
@@ -56,11 +56,19 @@
     text-align: center
   .add_cover
     margin-left: 100px
-  input.text
-    font-size: 20px
+  .label
+    color: #777
+  input[type=text]
     width: 100%
     padding: 5px
     color: #333
+    border: 1px solid #CCC
+    background: #fff
+    &.title
+      font-size: 16px
+      font-weight: bold
+    &.author
+      font-size: 14px
   table
     font-size: 12px
     td
@@ -69,3 +77,49 @@
         width: 120px
       &.rightcol
         width: 100%
+
+  #book_contents
+    h1, h2, h3
+      margin: 0
+      line-height: 125%
+      margin-bottom: 1em
+      padding: 0
+    h1
+      text-align: center
+      font-size: 1.5em
+      font-weight: normal
+    h2
+      font-size: 1.5em
+    .bold
+      font-weight: bold
+    .italic
+      font-style: italic
+    .underline
+      text-decoration: underline
+    .line-through
+      text-decoration: line-through
+    .sub
+      vertical-align: sub
+    .super
+      vertical-align: super
+    p
+      margin-bottom: 1em
+      &.left
+        text-align: left
+      &.right
+        text-align: right
+      &.center
+        text-align: center
+      &.justify
+        text-align: justify
+    .illustration img
+      width: 100%
+    //.foot_ref
+    //  vertical-align: super
+    //
+    //.foot
+    //  color: #999
+    //  background: #fea
+    //  margin-bottom: 1em
+  
+  
