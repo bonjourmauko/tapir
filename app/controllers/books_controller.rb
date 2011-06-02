@@ -1,5 +1,6 @@
 class BooksController < ApplicationController  
-  before_filter :find_book_by_id, :get_action_name
+  before_filter :find_book_by_id, :except => [:premaster]
+  before_filter :get_action_name
   
   
   def edit
@@ -35,13 +36,22 @@ class BooksController < ApplicationController
     render 'books/epub/metadata.opf'
   end
   
+  #def premaster
+  #  bookhtml = params[:bookhtml]
+  #  @book.set_premaster bookhtml
+  #  redirect_to :action => 'marketing'
+  #end
+  
   def premaster
-    bookhtml = params[:bookhtml]
-    @book.set_premaster bookhtml
-    redirect_to :action => 'marketing'
+    
+    logger.info params.inspect
+    if rand(100) > 50
+      render :text => "OK", :status => 200
+    else
+      render :text => "error", :status => 500
+    end
+    
   end
-  
-  
   
   private
   

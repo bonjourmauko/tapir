@@ -9,11 +9,13 @@ Tapir::Application.routes.draw do
     resource :source
     resources :illustrations
     member do
-      post 'premaster'
       get 'marketing'
       get 'contents'
       get 'publish'
       get 'epub_opf'
+    end
+    collection do
+      post 'premaster'
     end
     
   end

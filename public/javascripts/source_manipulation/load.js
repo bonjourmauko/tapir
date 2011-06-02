@@ -67,15 +67,6 @@ function LoadDocument(id, position)
     AfterAllChaptersHaveLoaded()
 }*/
 
-function UploadPremaster()
-{
-  url = "http://interpres.heroku.com/resources/books/premaster"
-  body = $.trim($('#book_contents').html())
-  data = {'premaster_id':premaster_id, 'body':body}
-  alert("starting")
-  $.post(url, data, function(data){alert('done!')} )
-  
-}
 
 
 function AfterAllChaptersHaveLoaded()
