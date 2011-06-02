@@ -1,67 +1,52 @@
 - content_for :javascript do
   = javascript_include_tag 'source_manipulation/clean'
   = javascript_include_tag 'source_manipulation/load'
+-content_for :stylesheets do
+  = stylesheet_link_tag 'books_contents'
 
 :javascript
   //var parts = #{1};
   var external_resource_id = "#{@source.resource_id}"
   var external_resource_type = "#{@source.collection ? 'google_collection' : 'google_document'}"
 
-.everything
-
-
+#book_preview
   .bar
-    .rt
-    = form_for @book do |f|
-      = last_action
-      = text_area_tag 'bookhtml'
-      = f.submit
-
-    .rt.full.googlelogo.middle
+    .item
+      = form_for @book do |f|
+        = last_action
+        = hidden_field_tag 'bookhtml'
+        = f.submit
+    .item.googlelogo
       = link_to "http://" do
         Edit your book in&nbsp;
         = image_tag "http://upload.wikimedia.org/wikipedia/en/2/29/Google_Docs_logo.png"
-  
-    .heading.full
-      Preview your book
-    .rt.full.middle
+    .item.preview
+      %h3 Preview your book      
       = image_tag "http://dl.dropbox.com/u/7989419/ipad_mini.png"
-      iPad
-
-      &nbsp;&nbsp;
+      iPad &nbsp;&nbsp;
       = image_tag "http://dl.dropbox.com/u/7989419/MRF_Kindle_Icon_s.png"
       Kindle
 
-    .toc
-      .heading
-        Table of Contents
-      .item= link_to "Cover"
-      .item= link_to "Copyright"
-      .item= link_to "The First Chapter"
-      .item= link_to "The Second Chapter"
-      .item= link_to "The Third Chapter"
-      .item= link_to "The Fourth Chapter"
-      .item= link_to "The Fifth Chapter"
+    #toc.item
+      %h3 Table of Contents
+      .item Cover
 
-        
+
   .wrapper
-    .section
+    #bookinfo.section
       .inner
-        %table.info
+        %table
           %tr
-            %td.top.left{:rowspan => 2}
+            %td.leftcol
               .cover= image_tag "http://pictorical.com/system/images/BAhbBlsHOgZmIioyMDExLzAzLzIyLzIxLzU5LzIxLzExL01lcm1haWQxODAuanBn/Mermaid180.jpg"
               .cover_link= link_to "Change cover", "http://www.google.com"
-            %td.right.top
-              .full
+            %td.rightcol
+              .item
                 %input.text
                 .label The title of your book
-              .full
+              .item
                 %input.text
                 .label The author of this book
-          %tr
-            %td.bottom
               
     
-    #contents.container
-    #html
+    #book_contents

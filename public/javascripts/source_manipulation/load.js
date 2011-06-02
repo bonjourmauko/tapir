@@ -20,7 +20,7 @@ function ParseCSS(css)
 
 function TemporalCSSToContent(css)
 {
-  css = css.replace(/#nonexistent/g,'#contents');
+  css = css.replace(/#nonexistent/g,'#book_contents');
   return css;
 }
 
@@ -70,29 +70,30 @@ function LoadDocument(id, position)
 function AfterAllChaptersHaveLoaded()
  {
 
-    // each temporal div is copied to #contents, cleaned and returned to the temporal div
+    // each temporal div is copied to #book_contents, cleaned and returned to the temporal div
     $('.temporal').each(function() {
         
         pre = $(this).contents();
-        $('#contents').empty().append(pre);
-        $styletag = $('#contents style')
+        $('#book_contents').empty().append(pre);
+        $styletag = $('#book_contents style')
         $styletag.html(TemporalCSSToContent($styletag.html()))
-
-         clean();
         
-        post = $('#contents').contents();
+        clean();
+        
+        post = $('#book_contents').contents();
         $(this).empty().append(post);
     })
-
-    // each temporal is appended to #contents
+    
+    // each temporal is appended to #book_contents
     $('.temporal').each(function() {
-        $('#contents').append($(this).remove().contents())
+        $('#book_contents').append($(this).remove().contents())
     })
 
     illustrationfy();
     chapterify();
+    buildToc();
 
-    $('#bookhtml').val($.trim($('#contents').html()));
+    $('#bookhtml').val($.trim($('#book_contents').html()));
 
 }
 

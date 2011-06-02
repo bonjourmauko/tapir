@@ -1,0 +1,71 @@
+#book_preview
+  min-width: 350px
+  width: 100%
+  .bar
+    position: fixed
+    right: 20px
+    top: 40px
+    width: 30%
+    min-width: 100px
+  .wrapper
+    width: 60% 
+    
+  .bar
+    >.item
+      margin-bottom: 1em
+      h3
+        background: #ddd
+        padding: 5px
+        font-size: 12px
+    .googlelogo, .preview
+      img
+        vertical-align: middle
+    .googlelogo // reducir el tamaño del logo de google y eliminar esto
+      img
+        height: 20px
+    #toc
+      >.item
+        margin-bottom: 0.25em
+  
+  .section
+    background: #fff
+    padding: 40px
+    margin: 40px auto
+    max-width: 600px
+    min-width: 250px
+    -moz-box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+    -webkit-box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+    box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+    font-size: 12px
+    .inner
+      margin: -20px   
+    &.chapter
+      font: 16px Georgia, serif
+      line-height: 125%
+      text-align: justify
+  
+  #bookinfo
+  width: 100%
+  .item
+    margin-bottom: 1em
+  .cover img
+    width: 125px
+    margin-right: 10px
+  .cover_link
+    margin-top: 5px
+    text-align: center
+  .add_cover
+    margin-left: 100px
+  input.text
+    font-size: 20px
+    width: 100%
+    padding: 5px
+    color: #333
+  table
+    font-size: 12px
+    td
+      vertical-align: top
+      &.leftcol
+        width: 120px
+      &.rightcol
+        width: 100%
