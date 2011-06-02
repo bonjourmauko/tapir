@@ -1,0 +1,15 @@
+%h1 Hola
+
+= form_tag('http://api2.transloadit.com/assemblies', :multipart => true, :id => 'upload_cover') do
+  = hidden_field_tag :params, @transloadit_params.to_json
+  = file_field_tag :cover
+  = submit_tag "Upload Cover"
+
+:javascript
+  var tlProtocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+  document.write(unescape("%3Cscript src='" + tlProtocol + "assets.transloadit.com/js/jquery.transloadit2.js' type='text/javascript'%3E%3C/script%3E"));
+
+:javascript
+  $(document).ready(function() {
+    $('#upload_cover').transloadit();
+  });

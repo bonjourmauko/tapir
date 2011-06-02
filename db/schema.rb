@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110602024959) do
+ActiveRecord::Schema.define(:version => 20110602200849) do
 
   create_table "books", :force => true do |t|
     t.integer  "user_id"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(:version => 20110602024959) do
   create_table "images", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.string   "cover_original_id"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "cover_file_extension"
   end
 
   create_table "sources", :force => true do |t|
