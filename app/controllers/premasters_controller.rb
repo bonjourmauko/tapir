@@ -16,14 +16,12 @@ def build
     render :text => "OK", :status => 200
     return
   else
-    logger.error("Problem: #{exc.message}")
-    render :text => "Problem", :status => 500
-    return
+    raise 'Could not build from packets'
   end
     
 rescue => exc
   
-  logger.error("Problem: #{exc.message}")
+  logger.error("Problem: #{exc.inspect} #{exc.message}")
   render :text => "Problem", :status => 500
   return
   
