@@ -255,6 +255,10 @@ function chapterify()
 
 function buildToc()
 {
+  $('#toc').empty()
+  
+  $('#toc').append( $('<div />').addClass('item').text('Cover') )
+  
   $('.chapter').each(function(){
     
     var chapter_name = $(this).find('h1').text();

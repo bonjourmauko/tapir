@@ -125,6 +125,7 @@ function LoadPremaster()
    $.getJSON(url, function(data){
      $('#book_contents').empty().html(data['body'])
      console.log("Premaster loaded from cache")
+     buildToc();
      HideLoading();
    } )
 
