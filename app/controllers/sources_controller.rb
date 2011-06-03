@@ -27,7 +27,7 @@ class SourcesController < ApplicationController
     source.save!
     book.save!
 
-    Notifier.welcome(book).deliver
+    Transactional.welcome(book).deliver
 
     render :text => "Created succesfully!\n", :status => 200
     
