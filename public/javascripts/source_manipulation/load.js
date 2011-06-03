@@ -130,16 +130,24 @@ function LoadPremaster()
 
 }
 
-$(document).ready(function() {
-
-if(premaster_uploaded == 1)
-{
-  
-  LoadPremaster()
-}
-else
+function ReloadBookContentsButton()
 {
   LoadAndProcessExternalDocument();
 }
+
+$(document).ready(function() {
+
+  $('#reload_book_contents').live('click', function(event) {
+    event.preventDefault();
+    ReloadBookContentsButton() } );
+  
+  if(premaster_uploaded == 1)
+  {
+    LoadPremaster()
+  }
+  else
+  {
+    LoadAndProcessExternalDocument();
+  }
 
 });

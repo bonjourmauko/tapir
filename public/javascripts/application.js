@@ -11,3 +11,4 @@ function HideLoading()
 {
   $('#loading_box').slideUp()
 }
+

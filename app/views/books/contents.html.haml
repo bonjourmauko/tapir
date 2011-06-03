@@ -22,6 +22,8 @@
         = last_action
         = hidden_field_tag 'bookhtml'
         = f.submit
+      .item
+        = link_to "Reload your document", "#", :id => "reload_book_contents"
       .item.googlelogo
         = link_to "http://" do
           Edit your book in&nbsp;
