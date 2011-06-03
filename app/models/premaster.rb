@@ -14,6 +14,7 @@ class Premaster < ActiveRecord::Base
 
     if self.upload_body body
       self.uploaded = true
+      self.touch
       self.save
       packets.each do |packet| packet.destroy end
     else
