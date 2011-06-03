@@ -6,7 +6,7 @@ class Master < ActiveRecord::Base
   
   
   def master_container format = "epub"
-    container_name = 'master_' + master_id + '_' + format
+    container_name = 'master_' + guid + '_' + format
     get_or_create_container container_name
   end
   
