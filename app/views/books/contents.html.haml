@@ -9,7 +9,11 @@
   //var parts = #{1};
   var external_resource_id = "#{@source.resource_id}"
   var external_resource_type = "#{@source.collection ? 'google_collection' : 'google_document'}"
-  var premaster_id = "#{@book.premaster_id}"
+  var premaster_id = "#{@premaster.guid}"
+  var premaster_uploaded = #{@premaster.uploaded ? 1 : 0}
+
+#loading_box
+  Loading
 
 #book_preview
   = form_for @book do |f|

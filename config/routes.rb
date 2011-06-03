@@ -1,4 +1,14 @@
 Tapir::Application.routes.draw do
+  resources :premaster_packets
+
+  resources :masters
+
+  resources :premasters do
+    collection do
+      post 'build'
+    end
+  end
+
   resources :images
 
   resources :illustrations
@@ -8,14 +18,12 @@ Tapir::Application.routes.draw do
   resources :books do
     resource :source
     resources :illustrations
+    resource :premaster
     member do
       get 'marketing'
       get 'contents'
       get 'publish'
       get 'epub_opf'
-    end
-    collection do
-      post 'premaster'
     end
     
   end

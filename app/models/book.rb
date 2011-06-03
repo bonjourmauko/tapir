@@ -2,9 +2,11 @@ class Book < ActiveRecord::Base
   
   delegate :service, :to => :source
   
-  before_create :set_long_ids
+  after_create :create_premaster, :create_source, :create_master
   
   has_one :source
+  has_one :premaster
+  has_one :master
   belongs_to :user
   has_many :illustrations
   
@@ -47,13 +49,10 @@ class Book < ActiveRecord::Base
   end
   
   def parsed_premaster
-    Nokogiri::HTML::DocumentFragment.parse premaster
+    Nokogiri::HTML::DocumentFragment.parse premaster.body
   end
 
-  def premaster
-    raise 'No premaster_id' if not premaster_id
-    premaster_container.object(premaster_id).data    
-  end
+
 
   def send_to_master args
     raise 'No path set' if not args[:path]
@@ -61,36 +60,11 @@ class Book < ActiveRecord::Base
     master_container.create_object(args[:path]).write args[:content]    
   end
   
-  # just for testing... premaster should be uploaded from external API
-  def set_premaster content
-    raise 'No premaster_id' if not premaster_id
-    premaster_container.create_object(premaster_id).write content
-  end
-    
-  def randid
-    Digest::MD5.hexdigest(Time.now.to_s + rand(1000000000000000).to_s)
-  end
-  
-  def set_long_ids
-    self.premaster_id = randid
-    self.master_id = randid
-  end
-  
-  def premaster_container
-    container_name = 'premaster'
-    get_or_create_container container_name
-  end
 
-  def master_container format = "epub"
-    container_name = 'master_' + master_id + '_' + format
-    get_or_create_container container_name
-  end
-  
-  def get_or_create_container container_name
-    cloudfiles_connection.container container_name
-  rescue CloudFiles::Exception::NoSuchContainer
-    cloudfiles_connection.create_container container_name
-  end
+
+
+
+
   
   def cloudfiles_connection
     CloudFiles::Connection.new :username => "pictorical", :api_key => "e9a07c0f97594806e21f0f1deba3b34f"
@@ -108,6 +82,18 @@ class Book < ActiveRecord::Base
   def apply_template template = EPUB_XHTML_TEMPLATE, args = {}
     haml_engine = Haml::Engine.new template
     haml_engine.render Object.new, args
+  end
+  
+  def create_premaster
+    Premaster.create :book_id => id if @premaster.nil?
+  end
+  
+  def create_source
+    Source.create :book_id => id if @source.nil?
+  end
+  
+  def create_master
+    Master.create :book_id => id if @master.nil?
   end
   
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110602024959) do
+ActiveRecord::Schema.define(:version => 20110602213611) do
 
   create_table "books", :force => true do |t|
     t.integer  "user_id"
@@ -19,10 +19,7 @@ ActiveRecord::Schema.define(:version => 20110602024959) do
     t.string   "title"
     t.string   "language"
     t.string   "paypal_username"
-    t.decimal  "price",                :precision => 6, :scale => 2
-    t.string   "premaster_id"
-    t.string   "master_id"
-    t.datetime "premaster_updated_at"
+    t.decimal  "price",           :precision => 6, :scale => 2
     t.boolean  "free"
     t.string   "author"
   end
@@ -39,6 +36,31 @@ ActiveRecord::Schema.define(:version => 20110602024959) do
   create_table "images", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "masters", :force => true do |t|
+    t.string   "guid"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "premaster_packets", :force => true do |t|
+    t.string   "premaster_guid"
+    t.string   "client_timestamp"
+    t.integer  "position"
+    t.integer  "length"
+    t.text     "chunk"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "premasters", :force => true do |t|
+    t.string   "guid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "book_id"
+    t.boolean  "uploaded"
   end
 
   create_table "sources", :force => true do |t|
