@@ -33,7 +33,7 @@ class SourcesController < ApplicationController
     
   rescue => exc
     
-    logger.error "Problem #{exc.message}"
+    logger.error "Problem #{exc.inspect}: #{exc.message}"
     render :text => "Error" + "\n", :status => 400
     
   end
