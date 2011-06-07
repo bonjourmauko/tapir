@@ -12,3 +12,10 @@ function HideLoading()
   $('#loading_box').slideUp()
 }
 
+$(document).ready(function() {
+  
+  //$('.force_full_width').each(function(){width($(this).parent().width())})
+  $('.force_full_width').each(function(){$(this).width($(this).parent().width())})
+
+  
+})
