@@ -26,12 +26,15 @@ class SourcesController < ApplicationController
     user.save! if user.new_record?
     source.save!
     book.save!
-    
+
+    Transactional.welcome(book).deliver
+
     render :text => "Created succesfully!\n", :status => 200
     
-  rescue => e
+  rescue => exc
     
-    render :text => e.message + "\n", :status => 400
+    logger.error "Problem #{exc.inspect}: #{exc.message}"
+    render :text => "Error" + "\n", :status => 400
     
   end
   

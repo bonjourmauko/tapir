@@ -230,7 +230,10 @@ function chapterify()
  {
     function chapter_class(level)
     {
-      return 'section chapter level'+level
+      if (level == 1)
+      {return 'section chapter level'+level}
+      else
+      {return 'chapter level'+level}
     }
    
     $('h1','#book_contents').each(function() {
@@ -252,6 +255,10 @@ function chapterify()
 
 function buildToc()
 {
+  $('#toc').empty()
+  
+  $('#toc').append( $('<div />').addClass('item').text('Cover') )
+  
   $('.chapter').each(function(){
     
     var chapter_name = $(this).find('h1').text();

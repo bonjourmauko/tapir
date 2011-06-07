@@ -9,7 +9,11 @@
   //var parts = #{1};
   var external_resource_id = "#{@source.resource_id}"
   var external_resource_type = "#{@source.collection ? 'google_collection' : 'google_document'}"
-  var premaster_id = "#{@book.premaster_id}"
+  var premaster_id = "#{@premaster.guid}"
+  var premaster_uploaded = #{@premaster.uploaded ? 1 : 0}
+
+#loading_box
+  Loading
 
 #book_preview
   = form_for @book do |f|
@@ -17,11 +21,14 @@
       .item
         = last_action
         = hidden_field_tag 'bookhtml'
-        = f.submit
+        = f.submit :value => "Next Step"
       .item.googlelogo
         = link_to "http://" do
           Edit your book in&nbsp;
           = image_tag "http://upload.wikimedia.org/wikipedia/en/2/29/Google_Docs_logo.png"
+      .item
+        If you made changes,
+        = link_to "Reload your document", "#", :id => "reload_book_contents"
       .item.preview
         %h3 Preview your book      
         = image_tag "http://dl.dropbox.com/u/7989419/ipad_mini.png"
@@ -29,9 +36,9 @@
         = image_tag "http://dl.dropbox.com/u/7989419/MRF_Kindle_Icon_s.png"
         Kindle
 
-      #toc.item
+      .item
         %h3 Table of Contents
-        .item Cover
+        #toc
 
 
     .wrapper

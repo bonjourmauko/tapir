@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  premaster_guid: MyString
+  client_timestamp: MyString
+  position: 1
+  length: 1
+  chunk: MyText
+
+two:
+  premaster_guid: MyString
+  client_timestamp: MyString
+  position: 1
+  length: 1
+  chunk: MyText

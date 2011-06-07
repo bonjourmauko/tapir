@@ -97,31 +97,58 @@ function AfterAllChaptersHaveLoaded()
     
 
     $('#bookhtml').val($.trim($('#book_contents').html()));
+    HideLoading();
+    DoSave();
 
+}
+
+function LoadAndProcessExternalDocument()
+{
+  ShowLoading();
+  $('.temporal').remove();
+  $('#book_contents').empty();
+  
+  if(external_resource_type == 'google_document')
+  {
+    var parts_to_load = 1;
+    $('body').append($('<div id="temporal1" class="temporal"></div>'))
+    $('.temporal').hide();
+    LoadDocument(external_resource_id, 1)
+  }
+  
+}
+
+function LoadPremaster()
+{
+  ShowLoading();
+   var url = "http://interpres.heroku.com/resources/books/premaster/"+premaster_id+"?callback=?"
+   $.getJSON(url, function(data){
+     $('#book_contents').empty().html(data['body'])
+     console.log("Premaster loaded from cache")
+     buildToc();
+     HideLoading();
+   } )
+
+}
+
+function ReloadBookContentsButton()
+{
+  LoadAndProcessExternalDocument();
 }
 
 $(document).ready(function() {
 
-
-
-    if(external_resource_type == 'google_document')
-    {
-      var parts_to_load = 1;
-      $('body').append($('<div id="temporal1" class="temporal"></div>'))
-      $('.temporal').hide();
-      LoadDocument(external_resource_id, 1)
-    }
-    
-/*    if(external_resource_type == 'google_collection')
-    {
-      LoadCollection(external_resource_id)
-
-      
-    }*/
-
-
-    //WaitUntilLoaded()
-
-
+  $('#reload_book_contents').live('click', function(event) {
+    event.preventDefault();
+    ReloadBookContentsButton() } );
+  
+  if(premaster_uploaded == 1)
+  {
+    LoadPremaster()
+  }
+  else
+  {
+    LoadAndProcessExternalDocument();
+  }
 
 });
