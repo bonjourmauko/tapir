@@ -9,6 +9,7 @@ gem 'haml'
 gem 'sass'
 gem 'cloudfiles'
 gem "paperclip", "~> 2.3"
+gem "activesupport", "< 3.0.8.rc4"
 gem "adaptive_payments"
 gem "exceptional"
 gem "carmen"
