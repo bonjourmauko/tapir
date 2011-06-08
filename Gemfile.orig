@@ -9,10 +9,13 @@ gem 'haml'
 gem 'sass'
 gem 'cloudfiles'
 gem "paperclip", "~> 2.3"
-gem "activesupport", "< 3.0.8.rc4"
+<<<<<<< HEAD
 gem "adaptive_payments"
 gem "exceptional"
+
+=======
 gem "carmen"
+>>>>>>> 4002e5e49a144d133de82ec6fa8be71cfe8aa937
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
