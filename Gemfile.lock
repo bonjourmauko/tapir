@@ -28,6 +28,10 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
+    adaptive_payments (0.0.1)
+      activesupport (< 3.0.8.rc4)
+      nestful
+      yajl-ruby
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
@@ -39,6 +43,8 @@ GEM
       warden (~> 1.0.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    exceptional (2.0.32)
+      rack
     haml (3.1.1)
     i18n (0.5.0)
     jquery-rails (1.0.9)
@@ -51,6 +57,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mysql2 (0.2.7)
+    nestful (0.0.6)
+      activesupport (>= 3.0.0.beta)
     nokogiri (1.4.4)
     orm_adapter (0.0.5)
     paperclip (2.3.11)
@@ -83,13 +91,16 @@ GEM
     tzinfo (0.3.27)
     warden (1.0.4)
       rack (>= 1.0)
+    yajl-ruby (0.8.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  adaptive_payments
   cloudfiles
   devise
+  exceptional
   haml
   jquery-rails (>= 1.0.3)
   mysql2 (< 0.3)

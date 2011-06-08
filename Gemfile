@@ -9,6 +9,8 @@ gem 'haml'
 gem 'sass'
 gem 'cloudfiles'
 gem "paperclip", "~> 2.3"
+gem "adaptive_payments"
+gem "exceptional"
 
 
 # Bundle edge Rails instead:
