@@ -98,7 +98,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
+  adaptive_payments
+=======
   carmen
+>>>>>>> 4002e5e49a144d133de82ec6fa8be71cfe8aa937
   cloudfiles
   devise
   exceptional
