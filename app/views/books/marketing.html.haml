@@ -1,9 +1,9 @@
-.cont
+.step
   .xc
     = form_for @book do |f|
       = last_action
       .x
-        %h3 Set a price for your book
+        %h2 Set a price for your book
         .half
           = f.radio_button :free, true
           Free
@@ -14,39 +14,46 @@
           US Dollars
         %hr.separator
       %h2.half How people will pay for your book?
-      .full Choose all that you want
+      .full
+        More payment options coming soon.
+        = link_to "Ideas?", "kkk"
       %hr.separator.thin
       .full
         .half.strong
           = check_box_tag :sosos
           %big Accept Paypal
-        .half.strong
-          You get
-          %big.red
-            $11.37
-          for each book sold.
-          %span.normal We get $0.30. Paypal gets $0.35.
-        .half.infobox
+        .half
+          Accept payments in 190 countries
+          = link_to "Tell me more", "jsjs"
+        .infobox.full
           Paypal username
           = f.text_field :paypal_username
-          You need a verified Paypal account
-        .half
-          = link_to "Tell me more", "jsjs"
-          %big &nbsp;
+        = link_to "get one", "hhh"
+      %hr.separator
+        %h2.half Tell us more about you
+        .full This is the first book you publish with us, we want to know more about you.
+        %hr.separator.thin
+                
+        %table.normal.userinfo.full
+          %tr
+            %td Your full name
+            %td= text_field_tag :user_name,"", :size => 30
+          %tr
+            %td Your country
+            %td= country_select :user, :country
         %hr.separator.thin
         .full
-          %h3.half
-            = check_box_tag :sosos
-            Pay to you directly
-            %span.normal You will sell unique download links
-          .half.strong
-            You get
-            %big.red
-              $12.37
-            for each book sold.
-          .half We sell you a block of 50 unique download links for $20
-          .k
-            = link_to "Tell me more", "jsjs"
-            %big &nbsp;
+          .userlogin
+            %table.normal.userinfo
+              %tr
+                %td Your email
+                %td victor@pictorical.com
+              %tr
+                %td Choose a password
+                %td= password_field :user, :password, :size => 30
+      
+      .full
+        = check_box_tag :sosos
+        I accept the Terms and Conditions
       .half
         = f.submit

@@ -1,21 +1,23 @@
-#min
-  #wrap
-    #main
-      .inner
-        = image_tag 'http://pictorical.com/system/images/BAhbBlsHOgZmIioyMDExLzAzLzIyLzIxLzU5LzIxLzExL01lcm1haWQxODAuanBn/Mermaid180.jpg'
-    #sidebar
-      .inner
-        %h1
-          The Little Mermaid
-        %p
-          By Hans Christian Andersen, Illustrated by Veronica
-        .price
-          %span.official
-            $3.00 USD
-          %span.local
-            $23000 CLP
-        .desc
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        
-        .buy
-          = link_to "Buy now", "jjjj",  :class => 'button'
+- content_for :body_class do
+  min
+  
+.enclosing
+  .show_book_min
+    %table
+      %tr
+        %td.cover
+          = image_tag 'http://pictorical.com/system/images/BAhbBlsHOgZmIioyMDExLzAzLzIyLzIxLzU5LzIxLzExL01lcm1haWQxODAuanBn/Mermaid180.jpg'
+        %td.info
+          .inner                                                                                                                                                                        
+            %h1
+              = @book.title
+            %p
+              = @book.author
+            .price
+              %span.official
+                = @book.price.to_s
+                USD
+            .desc
+              = @book.short_description
+            .buy
+              = link_to "Buy now", "jjjj",  :class => 'button'

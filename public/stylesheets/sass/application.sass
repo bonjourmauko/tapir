@@ -23,7 +23,8 @@ hr
     border: 0
     max-width: 600px
   &.thin
-    height: 2px
+    height: 1px
+
 
 
 #loading_box
@@ -36,16 +37,23 @@ hr
   font-size: 20px
   text-align: center
   
+.field
+  display: inline-block
+  vertical-align: top
 
 .clear
   clear: both
 
+.full
+  margin-bottom: 1em
+.half
+  margin-bottom: 0.5em
 
 
-
-.cont
+.step
   padding: 20px
-  background: white
+  background: #fff
+
 
 .red
   color: red
@@ -61,24 +69,51 @@ hr
   background: #fea
   padding: 5px
   display: inline-block
+  margin: 0.5em 0
 
-#min
-  #wrap
-    max-width: 960px
-    margin: 20px auto
-  #main
-    float: left
-    width: 200px
-    > .inner
-      padding: 0 20px
-  #sidebar
-    display: inline-block
-    float: right
-    max-width: 760px
-    > .inner
-      padding: 0 20px
-  #footer
-    clear: both
+.userlogin
+  background: #eee
+  display: inline-block
+  padding: 5px
+ 
+.userinfo
+  .labels
+    width: 15em
+
+body.min
+  background: #f7f7f7
+
+
+.enclosing
+  width: 70%
+  padding: 20px
+  background: white
+  margin: 30px auto
+  -moz-box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+  -webkit-box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+  box-shadow: 4px 4px 5px RGBA(0, 0, 0, 0.1)
+
+
+.show_book_min
+  max-width: 960px
+  margin: 0 auto
+  table
+    width: 100%
+    margin: 0 10px
+    font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif
+    td
+      vertical-align: top
+      &.info
+        padding-left: 20px
+  .cover
+    width: 180px
+  .info
+    .desc
+      width: 100%
+    .textarea_100
+      width: 100%
+
+  
   h1
     font-size: 1.5em
     margin: 0 0 1em 0

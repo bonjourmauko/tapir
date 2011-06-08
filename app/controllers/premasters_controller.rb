@@ -21,13 +21,10 @@ def build
     
 rescue => exc
   
-  logger.error("Problem: #{exc.inspect} #{exc.message}")
+  logger.error("Exception: #{exc.inspect}")
   render :text => "Problem", :status => 500
   return
   
 end
-  
-  
-  
   
 end

@@ -51,11 +51,15 @@
                 .cover_link= link_to "Change cover", "http://www.google.com"
               %td.rightcol
                 .item
-                  = f.text_field :title, :class => 'title'
                   .label The title of your book
+                  = f.text_field :title, :class => 'title'
                 .item
-                  = f.text_field :author, :class => 'author'
                   .label The author of this book
+                  = f.text_field :author, :class => 'author'
+                  
+                .item
+                  .label A short description of your book
+                  = f.text_area :short_description, :rows => 6
               
     
       #book_contents

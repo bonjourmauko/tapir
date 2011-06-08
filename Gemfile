@@ -9,7 +9,7 @@ gem 'haml'
 gem 'sass'
 gem 'cloudfiles'
 gem "paperclip", "~> 2.3"
-
+gem "carmen"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
