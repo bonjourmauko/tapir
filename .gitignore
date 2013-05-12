@@ -2,3 +2,8 @@
 db/*.sqlite3
 log/*.log
 tmp/
+config/database.yml
+config/exceptional.yml
+config/paypal.yml
+config/s3.yml
+config/transloadit.yml
